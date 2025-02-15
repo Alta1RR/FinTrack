@@ -1,4 +1,4 @@
-package Altakus.FinTrack.controller;
+package controller;
 
 public class TransactionController {
 }

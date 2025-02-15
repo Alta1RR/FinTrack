@@ -1,4 +1,4 @@
-package Altakus.FinTrack.repository;
+package repository;
 
 public interface UserRepository {
 }
