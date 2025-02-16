@@ -1,4 +1,4 @@
-package service;
+package Altakus.FinTrack.service;
 
 
 import org.springframework.stereotype.Service;
