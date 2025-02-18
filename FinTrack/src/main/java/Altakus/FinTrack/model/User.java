@@ -16,7 +16,7 @@ public class User{
     private String password;
 
     @Column(scale = 2)
-    private Float balance;
+    private Float userTotalBudget;
 
     @CreationTimestamp
     @Column(name = "registration_date")
@@ -59,11 +59,11 @@ public class User{
     }
 
     public Float getBalance() {
-        return balance;
+        return userTotalBudget;
     }
 
     public void setBalance(Float balance) {
-        this.balance = balance;
+        this.userTotalBudget = balance;
     }
 
     public Date getDate() {
