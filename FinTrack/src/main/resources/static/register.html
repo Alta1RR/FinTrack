@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="../templates/styles.css">
+</head>
+<body>
+<div class="container login-container">
+    <h2>Регистрация</h2>
+    <form id="loginForm">
+        <label for="username">Имя пользователя:</label>
+        <input type="text" id="username" name="username" placeholder="Введите имя пользователя" required>
+        <label for="email">Электронная почта:</label>
+        <input type="email" id="email" name="email" placeholder="Введите адрес электронной почты" required>
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" placeholder="Введите пароль" required>
+        <label for="confirm-password">Подтвердите пароль:</label>
+        <input type="password" id="confirm-password" name="confirm-password" placeholder="Подтвердите пароль" required>
+        <button type="submit">Зарегистрироваться</button>
+    </form>
+    <p>Есть аккаунт? <a href="../templates/index.html">Войти</a></p>
+</div>
+<script>
+    document.getElementById('loginForm').addEventListener('submit', async function(event) {
+        event.preventDefault(); // Предотвращаем перезагрузку страницы
+
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirm-password').value;
+
+
+        if (password !== confirmPassword) {
+            alert('Пароли не совпадают');
+            return;
+        }
+
+        const data = {
+            username: username,
+            email: email,
+            password: password
+        };
+
+        try {
+            // Отправляем POST-запрос
+            const response = await fetch('http://localhost:8080/users/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            // Обрабатываем ответ от сервера
+            if (response.ok) {
+                alert('Регистрация успешна');
+                window.location.href = 'index.html'; // Перенаправляем на страницу входа
+            } else {
+                const error = await response.json();
+                alert('Ошибка регистрации: ' + error.message);
+            }
+        } catch (error) {
+            console.error('Ошибка:', error);
+            alert('Произошла ошибка при регистрации');
+        }
+    });
+</script>
+</body>
+</html>

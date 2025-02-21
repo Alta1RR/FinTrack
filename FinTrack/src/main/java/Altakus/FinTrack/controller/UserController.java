@@ -4,6 +4,7 @@ import Altakus.FinTrack.model.User;
 import Altakus.FinTrack.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +20,7 @@ public class UserController {
     }
 
     // Метод регистрации пользователя
+    @CrossOrigin(origins = "http://localhost")
     @PostMapping("/register")
     public ResponseEntity<User> registerUser(@RequestBody User user){
         User createdUser = userService.registerUser(user); // Создаем временного пользователя для проверки уникальности Адреса

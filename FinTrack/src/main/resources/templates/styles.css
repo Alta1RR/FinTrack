@@ -36,7 +36,6 @@ h1, h2, h3 {
     margin-bottom: 20px;
 }
 
-
 form#transactionForm {
     display: grid;
     grid-template-columns: auto 1fr;
@@ -50,7 +49,7 @@ form#transactionForm label {
     text-align: right;
     padding-right: 10px;
     font-weight: bold;
-    align-self: center; 
+    align-self: center;
 }
 
 form#transactionForm input[type="number"],
@@ -61,23 +60,22 @@ form#transactionForm select {
     border-radius: 5px;
     border: 1px solid var(--border-color);
     font-size: 16px;
-    width: 100%; 
+    width: 100%;
 }
 
 form#transactionForm select {
-    appearance: none; 
-    -webkit-appearance: none; 
-    -moz-appearance: none; 
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     background-image: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/><path d="M0 0h24v24H0z" fill="none"/></svg>');
     background-repeat: no-repeat;
     background-position-x: 100%;
     background-position-y: center;
-    padding-right: 30px; 
+    padding-right: 30px;
 }
 
-
 form#transactionForm button[type="submit"] {
-    grid-column: span 2; 
+    grid-column: span 2;
     padding: 12px 20px;
     border: none;
     border-radius: 5px;
@@ -89,7 +87,7 @@ form#transactionForm button[type="submit"] {
 }
 
 form#transactionForm button[type="submit"]:hover {
-    background-color: darken(var(--primary-color), 10%);
+    background-color: #2980b9; /* Замена darken(var(--primary-color), 10%) */
 }
 
 table#transactionsTable {
@@ -103,7 +101,7 @@ table#transactionsTable thead th {
     color: white;
     padding: 12px;
     text-align: left;
-    border-bottom: 2px solid darken(var(--primary-color), 15%);
+    border-bottom: 2px solid #2980b9; /* Замена darken(var(--primary-color), 15%) */
 }
 
 table#transactionsTable tbody td,
@@ -120,18 +118,17 @@ table#transactionsTable tbody td:nth-child(2) {
     font-weight: bold;
 }
 
-table#transactionsTable tbody td:nth-child(3) { 
+table#transactionsTable tbody td:nth-child(3) {
     text-align: right;
 }
-table#transactionsTable tbody td:nth-child(2).income { 
+
+table#transactionsTable tbody td:nth-child(2).income {
     color: var(--success-color);
 }
 
-table#transactionsTable tbody td:nth-child(2).expense { 
+table#transactionsTable tbody td:nth-child(2).expense {
     color: var(--secondary-color);
 }
-
-
 
 .analytics {
     background-color: var(--light-gray);
@@ -142,7 +139,7 @@ table#transactionsTable tbody td:nth-child(2).expense {
 }
 
 .analytics h2 {
-    color: var(--success-color); 
+    color: var(--success-color);
     margin-top: 0;
 }
 
@@ -169,8 +166,6 @@ table#transactionsTable tbody td:nth-child(2).expense {
     color: var(--primary-color);
     font-weight: bold;
 }
-
-
 
 .upload-section {
     text-align: center;
@@ -201,6 +196,66 @@ table#transactionsTable tbody td:nth-child(2).expense {
 }
 
 .upload-section button:hover {
-    background-color: darken(var(--success-color), 10%);
+    background-color: #27ae60; /* Замена darken(var(--success-color), 10%) */
 }
 
+/* Добавленные стили для страницы входа */
+.login-container {
+    max-width: 400px;
+}
+
+form#loginForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form#loginForm label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+form#loginForm input[type="text"],
+form#loginForm input[type="password"],
+form#loginForm input[type="email"]{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    font-size: 16px;
+}
+
+form#loginForm input[type="text"]:focus,
+form#loginForm input[type="password"]:focus,
+form#loginForm input[type="email"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+form#loginForm button[type="submit"] {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form#loginForm button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+.container p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.container a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.container a:hover {
+    text-decoration: underline;
+}
