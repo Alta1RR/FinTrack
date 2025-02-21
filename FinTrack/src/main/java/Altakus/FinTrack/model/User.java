@@ -15,7 +15,7 @@ public class User{
     private String username;
     private String password;
 
-    @Column(scale = 2)
+    @Column(nullable = false, scale = 2)
     private Float userTotalBudget;
 
     @CreationTimestamp
@@ -26,6 +26,13 @@ public class User{
     public User() {
     }
     // Геттеры сеттеры и прочая дрянь
+    @PrePersist
+    public void prePersist() {
+        if (userTotalBudget == null) {
+            userTotalBudget = 0.0f; // Или 0.0d для Double, если userTotalBudget - Double
+        }
+    }
+
     public Long getId() {
         return id;
     }
